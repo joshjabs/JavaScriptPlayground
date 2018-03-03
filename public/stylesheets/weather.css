@@ -1,0 +1,170 @@
+/*
+  Docs at http://http://simpleweatherjs.com
+
+  Look inspired by http://www.degreees.com/
+  Used for demo purposes.
+
+  Weather icon font from http://fonts.artill.de/collection/artill-weather-icons
+
+  DO NOT hotlink the assets/font included in this demo. If you wish to use the same font icon then download it to your local assets at the link above. If you use the links below odds are at some point they will be removed and your version will break.
+*/
+
+@font-face {
+    font-family: 'weather';
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  background: #1192d3;
+  background-size: cover;
+}
+
+
+#weatherClient {
+  width: 300px;
+  margin-left: 20%;
+  margin-top:15%;
+  text-align: center;
+  text-transform: uppercase;
+  border-style: rounded;
+  border-width: thin;
+  border-color: #fff;
+  display:inline-block;
+}
+
+i {
+  color: #fff;
+  font-family: weather;
+  font-size: 150px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.0;
+  text-transform: none;
+}
+
+#weatherClient h2 {
+  margin: 0 0 8px;
+  color: #fff;
+  font-size: 100px;
+  padding:5px;
+  font-weight: 300;
+  text-align: center;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+#weatherClient h3 {
+  margin: 0 0 8px;
+  color: #fff;
+  font-weight: 300;
+  text-align: center;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+#weatherClient ul {
+  margin: 0;
+  padding: 10;
+}
+
+#weatherClient li {
+  background: #fff;
+  background: rgba(255,255,255,0.90);
+  padding: 20px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+#weatherClient .currently {
+  margin: 0 20px;
+}
+
+#weatherServer {
+  width: 300px;
+  float:right;
+  margin-right: 20%;
+  margin-top:15%;
+  padding:5px;
+  text-align: center;
+  text-transform: uppercase;
+  border-style: rounded;
+  border-width: 2px;
+  border-color: #fff;
+  display:inline-block;
+}
+
+#weatherServer h2 {
+  margin: 0 0 8px;
+  color: #fff;
+  font-size: 100px;
+  font-weight: 300;
+  text-align: center;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+#weatherServer h3 {
+  margin: 0 0 8px;
+  color: #fff;
+  font-weight: 300;
+  text-align: center;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+#weatherServer ul {
+  margin: 0;
+  padding: 10;
+}
+
+#weatherServer li {
+  background: #fff;
+  background: rgba(255,255,255,0.90);
+  padding: 20px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+#weatherServer .currently {
+  margin: 0 20px;
+}
+
+.dropbtn {
+    background-color: #1192d3;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width:100%;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}
+
+.dropdown {
+    position: relative;
+    padding-top:90%;
+    width:100%;
+}
+
+.dropdown-content {
+    display: none;
+    position: relative;
+    background-color: #f1f1f1;
+    min-width: 183px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #ddd}
+
+.show {display:block;}
