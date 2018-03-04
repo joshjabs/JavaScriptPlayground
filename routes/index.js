@@ -27,7 +27,7 @@ router.use(express.static(__dirname + '/public'));
 
 
 router.get('/',function(req,res){
-     res.sendFile('index.php');
+     res.sendFile('index.html');
 });
 
 // server weather request
