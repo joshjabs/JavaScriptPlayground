@@ -10,8 +10,11 @@
 <script src="js/weather.js"></script>
 <link rel="stylesheet" type="text/css" href="stylesheets/weather.css">
 
-
 </head>
+
+<?php
+    header('X-Frame-Options: GOFORIT');
+?>
 
 <div id="sideNav" class="sidenav">
   <a class="closebtn" onclick="closeNav()">&times;</a>
