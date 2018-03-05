@@ -144,7 +144,8 @@ i {
 
 .dropdown {
     position: relative;
-    padding-top:90%;
+    padding-top:40%;
+    padding-bottom:20%;
     width:100%;
 }
 
