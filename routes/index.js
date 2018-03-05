@@ -6,7 +6,7 @@ const request = require('request');
 
 const logger = new (winston.Logger)({
   transports: [
-    // colorize the output to the console
+    new winston.transports.File({ filename: 'logs/info.log', level: 'info' }),
     new (winston.transports.Console)({ colorize: true })
   ]
 });
@@ -32,7 +32,7 @@ router.get('/',function(req,res){
 
 // server weather request
 let apiKey = '8628814f3ffe26394e3549979ec7e64b';
-let city = 'Portland';
+let city = 'Seattle';
 let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`
 let serverWeather = null;
 UpdateWeatherData();
