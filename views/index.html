@@ -1,39 +1,43 @@
 <html>
 
-<head>
-<title>JS Laboratory</title>
-<script src="js/menu.js"></script>
-<link rel="stylesheet" type="text/css" href="stylesheets/menu.css">
+  <head>
 
-<script src="js/weather.js"></script>
-<link rel="stylesheet" type="text/css" href="stylesheets/weather.css">
+    <title>JS Laboratory</title>
 
-<script src="js/canvas.js"></script>
-</head>
+    <script src="js/menu.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheets/menu.css">
 
-<div id="sideNav" class="sidenav">
-  <a class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="/">Reload Site</a>
-  <a href="#" onclick="javascript:viewWeather()">Weather</a>
-  <a href="#" onclick="javascript:viewCanvas()">Canvas</a>
-  <a href="#">Contact</a>
+    <script src="js/weather.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheets/weather.css">
 
-  <div class="dropdown">
-    <button onclick="dropDown()" class="dropbtn">Select Client Location</button>
-    <div id="clientLocationDropdown" class="dropdown-content">
-      <a href="#" onclick="javascript:setClientLocation('Denver')">Denver</a>
-      <a href="#" onclick="javascript:setClientLocation('Seattle')">Seattle</a>
-      <a href="#" onclick="javascript:setClientLocation('London')">London</a>
+    <script src="js/canvas.js"></script>
+
+  </head>
+
+  <body>
+
+    <div id="sideNav" class="sidenav">
+      <a class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="/">Reload Site</a>
+      <a href="#" onclick="javascript:viewWeather()">Weather</a>
+      <a href="#" onclick="javascript:viewCanvas()">Canvas</a>
+
+      <div class="dropdown">
+        <button onclick="dropDown()" class="dropbtn">Select Client Location</button>
+        <div id="clientLocationDropdown" class="dropdown-content">
+          <a href="#" onclick="javascript:setClientLocation('Denver')">Denver</a>
+          <a href="#" onclick="javascript:setClientLocation('Seattle')">Seattle</a>
+          <a href="#" onclick="javascript:setClientLocation('London')">London</a>
+        </div>
+      </div>
     </div>
-  </div>
 
-</div>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()" class="burger">&#9776;</span>
 
-<span style="font-size:30px;cursor:pointer" onclick="openNav()" class="burger">&#9776;</span>
-
-<div id="mainView">
-  <div id="weatherClient">Client Weather Data</div>
-  <div id="weatherServer">Server Weather Data</div>
-</div>
-
+    <div id="mainView">
+      <!-- by default main view contains weather data-->
+      <div id="weatherClient">Client Weather Data</div>
+      <div id="weatherServer">Server Weather Data</div>
+    </div>
+  </body>
 </html>

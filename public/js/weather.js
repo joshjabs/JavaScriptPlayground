@@ -1,5 +1,6 @@
 // Weather API Key
 let apiKey = '8628814f3ffe26394e3549979ec7e64b';
+let defaultCity='Denver';
 
 function BuildURLFromCity( city ) {
   return `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
@@ -14,9 +15,34 @@ function BuildHTMLFromJSON( header, jsonObj ) {
   return html;
 }
 
+// set local storage and get weather data
+function setClientLocation( newCity ) {
+  console.log("set client city to " + newCity);
+  localStorage.setItem('city', newCity);
+  GetClientWeatherData();
+}
+
 // request json from weather api without using jQuery
 // jQuerys AJAX request is really just a wrapper on XMLHttpRequest anyways
-function GetClientWeatherData( city="Denver" ) {
+
+// let's also make it polymorphic with an empty string default value
+// if no value is passed, we try to use local storage
+
+// GetClientWeatherData() => will use local storage
+// GetClientWeatherData('Chicago') => will return weather data for Chicago
+function GetClientWeatherData( city='' ) {
+
+  if (city=='') {
+    try {
+      console.log('using local storage:', localStorage.getItem('city'));
+      city = localStorage.getItem('city');
+    } catch (e){
+      console.log("local storage not supported - using default");
+      city = defaultCity;
+    }
+  }
+
+  console.log('getting client weather data for ', city);
   var xhr = new XMLHttpRequest();
   xhr.open('GET', BuildURLFromCity(city) );
   xhr.onload = function() {
@@ -46,13 +72,12 @@ function GetServerWeatherData() {
   xhr.send();
 }
 
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
+// toggle showing dropdown content
 function dropDown() {
     document.getElementById("clientLocationDropdown").classList.toggle("show");
 }
 
-// Close the dropdown if the user clicks outside of it
+// close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches('.dropbtn')) {
 
@@ -67,10 +92,19 @@ window.onclick = function(event) {
   }
 }
 
-function setClientLocation( newCity ) {
-  console.log("set client city to " + newCity);
-  GetClientWeatherData(newCity);
+// try to get local storage for city or set default to Denver
+try {
+  let city = localStorage.getItem('city');
+  if (!city) {
+    console.log('no local storage - setting to default');
+    localStorage.setItem('city', 'Denver');
+  }
+  console.log('local storage city:', city);
+} catch(e) {
+  console.log("local storage not supported");
 }
 
+
+// load initial weather data
 GetClientWeatherData();
 GetServerWeatherData();

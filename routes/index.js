@@ -1,9 +1,13 @@
-var express = require('express');
+// some imports
+var express = require('express'); // express routing package
 var router = express.Router();
-const winston = require('winston');
-var path    = require("path");
+const winston = require('winston'); // winston logging package
+var path = require("path");
 const request = require('request');
 
+
+// create a logger with multiple transports/targets
+// logs to the console as well as a log file @ different log levels
 const logger = new (winston.Logger)({
   transports: [
     new winston.transports.File({ filename: 'logs/info.log', level: 'info' }),
@@ -13,12 +17,6 @@ const logger = new (winston.Logger)({
 
 logger.level='debug';
 
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('index', { title: 'Express' });
-//   winston.log('info', 'get root');
-// });
-
 // store all files in view folder.
 router.use(express.static(__dirname + '/../views'));
 
@@ -26,6 +24,7 @@ router.use(express.static(__dirname + '/../views'));
 router.use(express.static(__dirname + '/public'));
 
 
+// root route
 router.get('/',function(req,res){
      res.sendFile('index.html');
 });
@@ -50,6 +49,7 @@ function UpdateWeatherData() {
   });
 }
 
+// a get request will also trigger the server to update its own weather data
 router.get('/serverWeather', function(req, res){
   UpdateWeatherData();
   res.send(serverWeatherData);

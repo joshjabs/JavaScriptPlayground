@@ -1,3 +1,5 @@
+// Javascript functions that manipulate the DOM
+
 function openNav() {
     document.getElementById("sideNav").style.width = "500px";
 }
